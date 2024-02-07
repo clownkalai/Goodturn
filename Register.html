@@ -479,6 +479,7 @@
    <script>
         $(document).ready(function(){
             $("#submitBtn").click(function(){
+                 $("#spinner").addClass("show");
                 // Get form data
                 var name = $("#Fname").val()
                 var email = $("#email").val();
@@ -502,11 +503,13 @@
                         'message': message
                     },
                     success: function(response){
-                        console.log("ssssssssssssssssssssssss");
+                        
+                         $("#spinner").removeClass("show");
                         Swal.fire("Congrats.Successfully Registered..!");
                         // Handle success, e.g., display a success message
                     },
                     error: function(error){
+                         $("#spinner").removeClass("show");
                         Swal.fire("Registration Failed.Please Contact Support..!");
                         console.log(error);
                         // Handle error, e.g., display an error message
